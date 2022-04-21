@@ -2,7 +2,9 @@ package messenger;
 
 import java.util.List;
 
+import model.Message;
 import service.IMessageService;
+import service.MessageService;
 import singleton.DbContext;
 
 public class Application {

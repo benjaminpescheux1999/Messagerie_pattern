@@ -1,6 +1,12 @@
 package proxy;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+
+import model.Message;
 
 public class ListMessageProxy implements List<Message> {
 	private List<Message> internalList;
@@ -31,7 +37,7 @@ public class ListMessageProxy implements List<Message> {
 		return this.internalList.contains(o);
 	}
 
-	public Iterator<Produit> iterator() {
+	public Iterator<Message> iterator() {
 		this.load();
 		return this.internalList.iterator();
 	}
@@ -46,7 +52,7 @@ public class ListMessageProxy implements List<Message> {
 		return this.internalList.toArray(a);
 	}
 
-	public boolean add(Produit e) {
+	public boolean add(Message e) {
 		this.load();
 		return this.internalList.add(e);
 	}
@@ -61,12 +67,12 @@ public class ListMessageProxy implements List<Message> {
 		return this.internalList.containsAll(c);
 	}
 
-	public boolean addAll(Collection<? extends Produit> c) {
+	public boolean addAll(Collection<? extends Message> c) {
 		this.load();
 		return this.internalList.addAll(c);
 	}
 
-	public boolean addAll(int index, Collection<? extends Produit> c) {
+	public boolean addAll(int index, Collection<? extends Message> c) {
 		this.load();
 		return this.internalList.addAll(index, c);
 	}
@@ -87,22 +93,22 @@ public class ListMessageProxy implements List<Message> {
 		}
 	}
 
-	public Produit get(int index) {
+	public Message get(int index) {
 		this.load();
 		return this.internalList.get(index);
 	}
 
-	public Produit set(int index, Produit element) {
+	public Message set(int index, Message element) {
 		this.load();
 		return this.internalList.set(index, element);
 	}
 
-	public void add(int index, Produit element) {
+	public void add(int index, Message element) {
 		this.load();
 		this.internalList.add(index, element);
 	}
 
-	public Produit remove(int index) {
+	public Message remove(int index) {
 		this.load();
 		return this.internalList.remove(index);
 	}
@@ -117,17 +123,17 @@ public class ListMessageProxy implements List<Message> {
 		return this.internalList.lastIndexOf(o);
 	}
 
-	public ListIterator<Produit> listIterator() {
+	public ListIterator<Message> listIterator() {
 		this.load();
 		return this.internalList.listIterator();
 	}
 
-	public ListIterator<Produit> listIterator(int index) {
+	public ListIterator<Message> listIterator(int index) {
 		this.load();
 		return this.internalList.listIterator(index);
 	}
 
-	public List<Produit> subList(int fromIndex, int toIndex) {
+	public List<Message> subList(int fromIndex, int toIndex) {
 		this.load();
 		return this.internalList.subList(fromIndex, toIndex);
 	}
