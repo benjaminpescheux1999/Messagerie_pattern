@@ -3,6 +3,8 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Message;
+
 public class MessageService implements IMessageService{
 	public MessageService() {
 		System.out.println("CREATION PRODUIT SERVICE V2");
