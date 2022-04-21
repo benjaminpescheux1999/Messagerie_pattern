@@ -1,3 +1,4 @@
+//Singleton
 package Messenger;
 
 import Messenger.DbContext;
