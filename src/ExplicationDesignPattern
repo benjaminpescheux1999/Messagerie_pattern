@@ -1,1 +1,9 @@
-Singleton -> Permet de gérer la connexion à la BDD
+Singleton -> Permet de gérer l'instance de connexion à la BDD
+Memento -> Permet de pouvoir accéder a l'aide des flèches aux messages précédents
+Builder -> Permet de créer les messages en fonction de la couleurs et il transforme ce qu’il y a entre « * » en gras et entre « / » en italique
+State -> Permet de gérer le statut de l'utilisateur ( connecté ou absent)
+Observer -> permet d'envoyer les notifications aux utilisateurs en prenant en compte le statut de l'utilisateur 
+Facade -> Permet de simplifier l'interfacage des methodes présentent dans le service web
+Proxy -> Permet de charger la collection des messages d'une discussion et la conserver dans le cache
+Command -> Possibilité d’envoyer le message via un bouton ou via la touche « Entrée »
+Strategy -> Permet à l'utilisateur de choisir dans quelle technologie les messages seront sauvegarder
