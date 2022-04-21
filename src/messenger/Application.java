@@ -14,7 +14,7 @@ public class Application {
 		System.out.println(db);
 
 		//Proxy
-		IMessageService srvProduit = new MessageService();
+		IMessageService srvMessage = new MessageService();
 
 		// On récupère l'instance de la liste, sans la manipuler pour le moment
 		List<Message> messages = srvMessage.findAll();
