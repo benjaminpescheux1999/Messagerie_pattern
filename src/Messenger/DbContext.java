@@ -1,4 +1,6 @@
-package Singleton;
+package Messenger;
+
+import Messenger.DbContext;
 
 public class DbContext {
 	private static final DbContext instance = new DbContext();
