@@ -1,12 +1,10 @@
 //Singleton
-package Messenger;
-
-import Messenger.DbContext;
+package singleton;
 
 public class DbContext {
 	private static final DbContext instance = new DbContext();
 
-	private DbContext() { }
+	public DbContext() { }
 
 	public static DbContext getInstance() {
 		// Possible d'y ajouter une condition pour vérifier si l'instance existe
