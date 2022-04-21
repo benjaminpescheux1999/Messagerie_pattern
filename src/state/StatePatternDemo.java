@@ -1,4 +1,4 @@
-package State;
+package state;
 
 public class StatePatternDemo {
     public static void main(String[] args) {
