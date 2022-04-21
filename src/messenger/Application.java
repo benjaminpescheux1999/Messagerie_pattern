@@ -6,9 +6,13 @@ import model.Message;
 import service.IMessageService;
 import service.MessageService;
 import singleton.DbContext;
+import state.AbsentState;
+import state.Context;
+import state.PresentState;
 
 public class Application {
 	public static void main(String... args) {
+		
 		//Singleton context
 		DbContext db = DbContext.getInstance();
 		System.out.println(db);
@@ -23,6 +27,18 @@ public class Application {
 		// On manipule la liste en demandant sa taille, le chargement se fera à ce moment
 		System.out.println(messages.size());
 		System.out.println("UTILISEE, DONC CHARGEMENT !");
+		
+		//state
+		Context context = new Context();
+		 
+		PresentState presentState = new PresentState();
+		presentState.doAction(context);
+		System.out.println(context.getState().toString());
+		 
+		AbsentState absentState = new AbsentState();
+		absentState.doAction(context);
+		 
+		System.out.println(context.getState().toString());
 
 		
 	}
