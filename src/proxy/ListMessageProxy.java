@@ -15,7 +15,6 @@ public class ListMessageProxy implements List<Message> {
 		if (this.internalList == null) {
 			System.out.println("CHARGEMENT ...");
 			this.internalList = new ArrayList<>();
-
 			this.internalList.add(new Message());
 			this.internalList.add(new Message());
 			this.internalList.add(new Message());

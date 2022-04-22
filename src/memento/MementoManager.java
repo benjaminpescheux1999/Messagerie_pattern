@@ -5,11 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Observer.IListener;
+import Observer.IObservable;
 import model.Message;
 
 
 
-public class MementoManager {
+public class MementoManager implements IListener{
 
 	private Map<Integer, List<MementoMessage>> MementoMessages = new HashMap<>();
 	private int currentMessageIndex = -1;
@@ -50,6 +52,14 @@ public class MementoManager {
 				System.out.println("Message Suivant");
 				mementos.get(++currentMessageIndex).restore(Message);
 			}
+		}
+	}
+
+	@Override
+	public void update(IObservable target, Object ctx) {
+		// TODO Auto-generated method stub
+		if (ctx instanceof Message) {
+			this.ajouterMemento((Message)ctx);
 		}
 	}
 
