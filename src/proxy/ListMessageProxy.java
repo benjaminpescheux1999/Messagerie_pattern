@@ -19,6 +19,7 @@ public class ListMessageProxy implements List<Message> {
 			this.internalList.add(new Message());
 			this.internalList.add(new Message());
 			this.internalList.add(new Message());
+			this.internalList.add(new Message());
 		}
 	}
 
