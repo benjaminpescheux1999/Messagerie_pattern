@@ -14,17 +14,25 @@ public class Conversation {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public List<Utilisateur> getUtilisateurs() {
+	
+	public List<Utilisateur> getAllUtilisateurs() {
 		return utilisateurs;
 	}
-	public void setUtilisateurs(List<Utilisateur> utilisateurs) {
-		this.utilisateurs = utilisateurs;
-	}
-	public List<Message> getMessages() {
+	
+	public List<Message> getAllMessages() {
 		return messages;
 	}
-	public void setMessages(List<Message> messages) {
-		this.messages = messages;
+	
+	public List<Message> getAllMessageByUser(int idUtilisateur){
+		List<Message> result = null;
+		
+		for(Message m : messages) {
+			if(m.getEmetteur().getId() == idUtilisateur) {
+				result.add(m);
+			}	
+		}
+		
+		return result;
 	}
 	
 	public void addMessage(Message message) {

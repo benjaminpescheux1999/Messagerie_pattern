@@ -1,13 +1,12 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import model.Message;
-import proxy.ListMessageProxy;
+import model.Utilisateur;
+import proxy.ListUtilisateurProxy;
 
-public class MessageService implements IMessageService{
-	public MessageService() {
+public class UtilisateurService implements IUtilisateurService {
+	public UtilisateurService() {
 		System.out.println("CREATION PRODUIT SERVICE V2");
 	}
 
@@ -16,14 +15,14 @@ public class MessageService implements IMessageService{
 		//return new ArrayList<>();
 	//}
 
-	public Message findById(int id) {
+	public Utilisateur findById(int id) {
 		System.out.println("FIND BY ID " + id);
-		return new Message();
+		return new Utilisateur();
 	}
-	public List<Message> findAll() {
+	public List<Utilisateur> findAll() {
 		System.out.println("FIND ALL");
 		//this.alert(); // On informe les listeners
-		return new ListMessageProxy();
+		return new ListUtilisateurProxy();
 	}
 	/*@Override
 	public void alert() {
