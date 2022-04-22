@@ -8,4 +8,5 @@ import model.Utilisateur;
 public interface IUtilisateurService {
 	public List<Utilisateur> findAll();
 	public Utilisateur findById(int id);
+	public String login(String pseudo);
 }

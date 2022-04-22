@@ -4,7 +4,9 @@ import java.util.List;
 
 import model.Message;
 import service.IMessageService;
+import service.IUtilisateurService;
 import service.MessageService;
+import service.UtilisateurService;
 import singleton.DbContext;
 import state.AbsentState;
 import state.Context;
@@ -22,7 +24,9 @@ public class Application {
 		absentState.doAction(context);
 		System.out.println(context.getState().toString());
 		//Connexion
-		System.out.println("Utilisateur connecté");
+		IUtilisateurService srvUtilisateur = new UtilisateurService();
+		System.out.println(srvUtilisateur.login("Benjamin"));
+		//System.out.println("Utilisateur connecté");
 
 		//state (Si connecté change state en présent et passer au proxy)			 
 		PresentState presentState = new PresentState();

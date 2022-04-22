@@ -24,6 +24,10 @@ public class UtilisateurService implements IUtilisateurService {
 		//this.alert(); // On informe les listeners
 		return new ListUtilisateurProxy();
 	}
+	public String login(String pseudo) {
+		String stateConnect ="Vous etes connecté";
+		return stateConnect;
+	}
 	/*@Override
 	public void alert() {
 		this.listeners.forEach(l -> l.update(this));
