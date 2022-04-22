@@ -15,7 +15,7 @@ public class DbContext {
 			// instance = new DbContext();
 			// Autres param√®tres ...
 		// }
-
+			System.out.println("Connexion ‡ la BDD !!!");
 		return instance;
 	}
 }
