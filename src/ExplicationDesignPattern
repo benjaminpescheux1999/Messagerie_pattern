@@ -7,3 +7,5 @@ Facade -> Permet de simplifier l'interfacage des methodes présentent dans le ser
 Proxy -> Permet de charger la collection des messages d'une discussion et la conserver dans le cache
 Command -> Possibilité d’envoyer le message via un bouton ou via la touche « Entrée »
 Strategy -> Permet à l'utilisateur de choisir dans quelle technologie les messages seront sauvegarder
+Decorator -> Permet de relier les services au design pattern "Observer"	sans modifier la structure des services,
+ exemple pour la sauvegarde des messages afin d'y accéder avec le memento

@@ -9,8 +9,6 @@ import Observer.IListener;
 import Observer.IObservable;
 import model.Message;
 
-
-
 public class MementoManager implements IListener{
 
 	private Map<Integer, List<MementoMessage>> MementoMessages = new HashMap<>();
@@ -26,7 +24,7 @@ public class MementoManager implements IListener{
 		while (mementos.size() - 1 > currentMessageIndex) {
 			mementos.remove(mementos.size() - 1);
 		}
-
+		System.out.println("Ajout du message au memento");
 		mementos.add(new MementoMessage(message));
 		currentMessageIndex++;
 

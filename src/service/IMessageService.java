@@ -6,4 +6,5 @@ import model.Message;
 public interface IMessageService {
 	public List<Message> findAll();
 	public Message findById(int id);
+	public void save(Message message);
 }

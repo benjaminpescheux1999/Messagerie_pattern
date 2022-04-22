@@ -3,11 +3,10 @@ package state;
 public class PresentState implements state {
 
     public void doAction(Context context) {
-       System.out.println("L'utilisateur est prÃ©sent");
        context.setState(this);	
     }
  
     public String toString(){
-       return "PresentState";
+       return "L'utilisateur est présent";
     }
  }

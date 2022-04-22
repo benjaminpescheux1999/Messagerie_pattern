@@ -8,7 +8,7 @@ import proxy.ListMessageProxy;
 
 public class MessageService implements IMessageService{
 	public MessageService() {
-		System.out.println("CREATION Message");
+		
 	}
 
 	//public List<Message> findAll() {
@@ -17,11 +17,10 @@ public class MessageService implements IMessageService{
 	//}
 
 	public Message findById(int id) {
-		System.out.println("FIND BY ID " + id);
+
 		return new Message();
 	}
 	public List<Message> findAll() {
-		System.out.println("FIND ALL");
 		//this.alert(); // On informe les listeners
 		return new ListMessageProxy();
 	}
@@ -29,4 +28,11 @@ public class MessageService implements IMessageService{
 	public void alert() {
 		this.listeners.forEach(l -> l.update(this));
 	}*/
+
+	@Override
+	public void save(Message message) {
+		// TODO Auto-generated method stub
+		System.out.println("Le message " + message.getMessage() + " a été sauvegardé.");
+		
+	}
 }

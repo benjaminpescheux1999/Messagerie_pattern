@@ -1,8 +1,12 @@
 package messenger;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
+import Decorator.MessageServiceDecorator;
+import memento.MementoManager;
 import model.Message;
+import model.Utilisateur;
 import service.IMessageService;
 import service.IUtilisateurService;
 import service.MessageService;
@@ -13,42 +17,60 @@ import state.Context;
 import state.PresentState;
 
 public class Application {
-	public static void main(String... args) {
+	public static void main(String... args) throws Exception {
 		
-		//Singleton context (try catch)
-		//Connexion bdd
-		DbContext db = DbContext.getInstance();
-		// Déclarer l'utilisateur absent
-		Context context = new Context();
-		AbsentState absentState = new AbsentState();
-		absentState.doAction(context);
-		System.out.println(context.getState().toString());
-		//Connexion
-		IUtilisateurService srvUtilisateur = new UtilisateurService();
-		System.out.println(srvUtilisateur.login("Benjamin"));
-		//System.out.println("Utilisateur connecté");
+		MessageServiceDecorator srvMessage = new MessageServiceDecorator();
+		MementoManager mementoManager = new MementoManager();
+		Message message= srvMessage.findById(1);
+		
+		// Création de 2 utilisateurs
+		Utilisateur utilisateur1  = new Utilisateur();
+		Utilisateur utilisateur2  = new Utilisateur();
+		
+		utilisateur1.setId(1);
+		utilisateur1.setPseudo("Benjamin");
+		utilisateur2.setId(2);
+		utilisateur2.setPseudo("Matthieu");
+		
+		srvMessage.attach(mementoManager);
+		
+		
+		try {
+			//Utilisation du singleton pour se connecter à la bdd
+            DbContext db = DbContext.getInstance();
+            //Connexion de l'utilisateur
+            IUtilisateurService srvUtilisateur = new UtilisateurService();
+            if (srvUtilisateur.login("Admin")=="Valid") {
+            	//L'utilisateur envoie plusieurs messages
+            	message.setMessage("Salut");
+        		message.setEmetteur(utilisateur1);
+        		message.setDestinataire(utilisateur2);
+        		
+        		srvMessage.save(message).get();
+        		
+        		message.setMessage("MANGER");
+        		message.setEmetteur(utilisateur1);
+        		message.setDestinataire(utilisateur2);
+        		
+        		srvMessage.save(message).get();
+        		
+        		message.setMessage("VITE !");
+        		message.setEmetteur(utilisateur1);
+        		message.setDestinataire(utilisateur2);
+        		
+        		srvMessage.save(message).get();
+        		
+        		//L'utilisateur utilise les flèches afin de récupérer les messages précédemment envoyés
+        		mementoManager.mementoPrecedent(message);
+        		System.out.println(message.getMessage());
 
-		//state (Si connecté change state en présent et passer au proxy)			 
-		PresentState presentState = new PresentState();
-		presentState.doAction(context);
-		System.out.println(context.getState().toString());
-				 
-								
-		//Proxy
-		IMessageService srvMessage = new MessageService();
-		// On rÃ©cupÃ¨re l'instance de la liste, sans la manipuler pour le moment
-		List<Message> messages = srvMessage.findAll();
-		System.out.println("PAS ENCORE UTILISEE, DONC PAS DE CHARGEMENT ICI");
+        		mementoManager.mementoSuivant(message);
+        		System.out.println(message.getMessage());
 
-		// On manipule la liste en demandant sa taille, le chargement se fera Ã  ce moment
-		System.out.println(""+messages.size());
-		System.out.println("UTILISEE, DONC CHARGEMENT !");
-		
-		
-		
-		
-		
-
+            }
+        }catch(Exception e) {
+            System.out.println("error"+e);
+        }
 		
 	}
 }
