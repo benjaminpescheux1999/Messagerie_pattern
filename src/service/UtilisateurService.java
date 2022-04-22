@@ -7,7 +7,7 @@ import proxy.ListUtilisateurProxy;
 
 public class UtilisateurService implements IUtilisateurService {
 	public UtilisateurService() {
-		System.out.println("CREATION PRODUIT SERVICE V2");
+		System.out.println("CREATION Utilisateur");
 	}
 
 	//public List<Message> findAll() {

@@ -14,23 +14,22 @@ public class Application {
 	public static void main(String... args) {
 		
 		//Singleton context (try catch)
+		//Connexion bdd
 		DbContext db = DbContext.getInstance();
-		
+		// Déclarer l'utilisateur absent
+		Context context = new Context();
+		AbsentState absentState = new AbsentState();
+		absentState.doAction(context);
+		System.out.println(context.getState().toString());
 		//Connexion
-		
-		//state (Si connecté change state en présent et passer au proxy)
-				Context context = new Context();
+		System.out.println("Utilisateur connecté");
+
+		//state (Si connecté change state en présent et passer au proxy)			 
+		PresentState presentState = new PresentState();
+		presentState.doAction(context);
+		System.out.println(context.getState().toString());
 				 
-				PresentState presentState = new PresentState();
-				presentState.doAction(context);
-				System.out.println(context.getState().toString());
-				 
-				AbsentState absentState = new AbsentState();
-				absentState.doAction(context);
-				 
-				System.out.println(context.getState().toString());
-		//state sinon break
-				
+								
 		//Proxy
 		IMessageService srvMessage = new MessageService();
 		// On rÃ©cupÃ¨re l'instance de la liste, sans la manipuler pour le moment

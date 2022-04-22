@@ -8,7 +8,7 @@ import proxy.ListMessageProxy;
 
 public class MessageService implements IMessageService{
 	public MessageService() {
-		System.out.println("CREATION PRODUIT SERVICE V2");
+		System.out.println("CREATION Message");
 	}
 
 	//public List<Message> findAll() {
