@@ -37,7 +37,7 @@ public class MementoManager {
 		if (this.MementoMessages.containsKey(Message.getEmetteur().getId())) {
 			List<MementoMessage> mementos = this.MementoMessages.get(Message.getEmetteur().getId());
 			
-			System.out.println("PREVIOUS");
+			System.out.println("Message Précédent");
 			mementos.get(--currentMessageIndex).restore(Message);
 		}
 	}
@@ -47,12 +47,10 @@ public class MementoManager {
 			List<MementoMessage> mementos = this.MementoMessages.get(Message.getEmetteur().getId());
 
 			if (mementos.size() - 2 >= currentMessageIndex) {
-				System.out.println("NEXT");
+				System.out.println("Message Suivant");
 				mementos.get(++currentMessageIndex).restore(Message);
 			}
 		}
 	}
 
-	
-	
 }
